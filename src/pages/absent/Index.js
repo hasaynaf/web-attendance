@@ -8,7 +8,7 @@ import Modal from '../component/Modal'
 
 function Absen() {
 
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token")
     Axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
     
     const navigate = useNavigate()
@@ -22,7 +22,7 @@ function Absen() {
     
     useEffect(() => {
         if (!token) navigate('/')
-        getData()
+        else getData()
     }, [])
 
     const getData = async () => {

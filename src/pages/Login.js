@@ -8,10 +8,12 @@ function Login() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [validation, setValidation] = useState([])
+
+    const token = localStorage.getItem("token")
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (localStorage.getItem('token')) navigate('/home')
+        if (token) navigate('/home')
         document.title = 'Absensi Karyawan - Sign In'
     }, [])
     

@@ -8,11 +8,13 @@ import EmployeeAbsent from './employee/absent/Index'
 
 function Home() {
 
+    const token = localStorage.getItem("token")
     const roleId = localStorage.getItem('roleId')
+    
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (!localStorage.getItem('token')) navigate('/')
+        if (!token) navigate('/')
         document.title = 'Absensi Karyawan - Beranda'
     }, [])
     

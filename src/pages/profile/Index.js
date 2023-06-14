@@ -5,7 +5,7 @@ import Axios from 'axios';
 
 function Index() {
     
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token")
     Axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
     const navigate = useNavigate()
@@ -16,10 +16,10 @@ function Index() {
     const [password, setPassword] = useState("")
     const [oldPassword, setOldPassword] = useState("")
     const [phone, setPhone] = useState("")
-    const [photo, setPhoto] = useState("")
 
     useEffect(() => {
-        getUser()
+        if (!token) navigate('/')
+        else getUser()
     }, [])
 
     const getUser = async () => {
@@ -77,10 +77,6 @@ function Index() {
                                 <div className="mb-3">
                                     <label className="form-label">Telepon</label>
                                     <input type="number" className="form-control" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone"/>
-                                </div>
-                                <div className="mb-3">
-                                    <label className="form-label">Foto</label>
-                                    <input type="file" className="form-control"/>
                                 </div>
                                 <div className="d-grid gap-2">
                                     <Button type="submit" className="btn btn-primary">Ubah</Button>
